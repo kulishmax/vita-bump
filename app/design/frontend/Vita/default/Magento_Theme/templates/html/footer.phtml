@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="footer-container">
+    <div class="footer-container__subscribe">
+        <div class="subscribe_wrapper">
+            <div class="design-block"></div>
+            <h1>Get the latest updates on your <span>experience</span><br>directly to your inbox.</h1>
+            <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('newsletter-custom')->toHtml();?>
+        </div>
+    </div>
+    <div class="footer">
+        <?= $block->getChildHtml() ?>
+    </div>
+</div>

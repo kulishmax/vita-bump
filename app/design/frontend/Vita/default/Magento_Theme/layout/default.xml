@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    
+    </body>
+
+    <referenceContainer name="header.container">
+        <container name="header-wrapper" label="Page Header" as="header-wrapper" htmlTag="div" htmlClass="header content">
+            <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                <arguments>
+                    <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                    <argument name="logo_alt" xsi:type="string">VitaFusion</argument>
+                    <argument name="logo_img_width" xsi:type="number">250</argument>
+                    <argument name="logo_img_height" xsi:type="number">45</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="newsletter-custom">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">newsletter-custom</argument>
+                </arguments>
+            </block>
+        </container>
+    </referenceContainer>
+    
+    <referenceContainer name="catalog.topnav">
+        <block class="Magento\Cms\Block\Block" name="header-menu">
+            <arguments>
+                <argument name="block_id" xsi:type="string">header-menu</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+    
+    <move element="navigation.sections" destination="header.container"/>
+
+    <referenceBlock name="breadcrumbs" remove="true" />
+    <referenceBlock name="header.panel.wrapper" remove="true"/>
+    <referenceBlock name="minicart" remove="true"/>
+    <referenceBlock name="top.search" remove="true"/>
+    <referenceBlock name="report.bugs" remove="true"/>
+    <referenceBlock name="footer_links" remove="true"/>
+    <referenceBlock name="form.subscribe" remove="true" />
+	
+    <referenceContainer name="footer">
+        <block class="Magento\Framework\View\Element\Template" name="footer.html"
+               template="Magento_Theme::html/footer.phtml" before="copyright">
+            <block class="Magento\Theme\Block\Html\Header\Logo" name="logo.footer" template="html/footer/logo.phtml">
+                <arguments>
+                    <argument name="logo_file" xsi:type="string">images/logo_tm_x128.png</argument>
+                    <argument name="logo_img_width" xsi:type="number">128</argument>
+                    <argument name="logo_img_height" xsi:type="number">66</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe.footer" as="form.subscribe.footer" template="html/footer/subscribe.phtml"/>
+            <block class="Magento\Cms\Block\Block" name="responsive_footer_links">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">responsive_footer_links</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="responsive_footer_social_links">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">responsive_footer_social_links</argument>
+                </arguments>
+            </block>
+        </block>
+    </referenceContainer>
+</page>
